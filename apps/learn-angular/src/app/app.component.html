@@ -1,1 +1,23 @@
-<learn-angular-nx-welcome></learn-angular-nx-welcome>
+<div class="main-display">
+  <mat-card>
+    <mat-card-title>Things to do</mat-card-title>
+    <mat-card-content>
+      <section>
+        <div *ngFor="let todo of todosList">
+          <mat-checkbox [(ngModel)]="todo.done"> {{ todo.description }} ({{ todo.done }})</mat-checkbox>
+        </div>
+      </section>
+    </mat-card-content>
+    <mat-card-footer>
+      <form (submit)="addNewTodo()">
+        <div class="new-todo-footer">
+          <mat-form-field appearance="fill" class="todo-description">
+            <mat-label>Something you need to do</mat-label>
+            <input name="newTodoDescription" matInput placeholder="Something to do" [(ngModel)]="newTodoDescription" />
+          </mat-form-field>
+          <button type="submit" mat-button matSuffix color="primary">Add</button>
+        </div>
+      </form>
+    </mat-card-footer>
+  </mat-card>
+</div>
