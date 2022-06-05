@@ -3,3 +3,12 @@
   margin:auto;
   margin-top: 2rem;
 }
+
+.new-todo-footer {
+  display: flex;
+  padding: 0 1rem;
+
+  .todo-description {
+    flex-grow: 1;
+  }
+}
