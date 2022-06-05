@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learn-angular';
+
+  todosList = [
+    {
+      done: false,
+      description: 'learn angular',
+    },
+    { done: false, description: 'attend the Angular Community Meetup' },
+  ];
 }
