@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "learn-angular": "apps/learn-angular",
+    "learn-angular-e2e": "apps/learn-angular-e2e"
+  }
+}
