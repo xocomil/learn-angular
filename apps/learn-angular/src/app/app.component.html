@@ -1,4 +1,11 @@
-<fieldset>
-  <label><input type="checkbox" [(ngModel)]="todosList[0].done"> {{todosList[0].description}} ({{todosList[0].done}})</label>
-  <label><input type="checkbox" [(ngModel)]="todosList[1].done"> {{todosList[1].description}} ({{todosList[1].done}})</label>
-</fieldset>
+<div class="main-display">
+  <mat-card>
+    <mat-card-title>Things to do</mat-card-title>
+    <mat-card-content>
+      <section>
+        <mat-checkbox [(ngModel)]="todosList[0].done"> {{todosList[0].description}} ({{todosList[0].done}})</mat-checkbox><br>
+        <mat-checkbox [(ngModel)]="todosList[1].done"> {{todosList[1].description}} ({{todosList[1].done}})</mat-checkbox>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>
