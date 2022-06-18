@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { combineLatest, reduce, Subject } from 'rxjs';
 import { TodoListItem } from './models/todo-list-item';
 
 @Component({
@@ -10,18 +11,27 @@ export class AppComponent {
   title = 'learn-angular';
   newTodoDescription = '';
 
-  todosList: TodoListItem[] = [
-    {
-      done: false,
-      description: 'learn angular',
-    },
-    { done: false, description: 'attend the Angular Community Meetup' },
-    { done: true, description: 'style with Angular Material' },
-  ];
+  #newTodoListItem$ = new Subject<TodoListItem>();
+  #clearTodoList$ = new Subject<boolean>();
+
+  todosList$ = combineLatest({
+    newTodoListItem: this.#newTodoListItem$,
+    clearTodoList: this.#clearTodoList$,
+  }).pipe(reduce({ newTodoListItem }));
+
+  constructor() {
+.forEach((item) => {
+      this.#newTodoListItem$.next(item);
+    });
+  }
 
   addNewTodo(): void {
-    this.todosList = [...this.todosList, { done: false, description: this.newTodoDescription }];
+    this.#newTodoListItem$.next({ done: false, description: this.newTodoDescription });
 
     this.newTodoDescription = '';
+  }
+
+  clearAll(): void {
+    this.#clearTodoList$.next(true);
   }
 }

@@ -3,7 +3,7 @@
     <mat-card-title>Things to do</mat-card-title>
     <mat-card-content>
       <section>
-        <div *ngFor="let todo of todosList">
+        <div *ngFor="let todo of todosList$ | async">
           <mat-checkbox [(ngModel)]="todo.done"> {{ todo.description }} ({{ todo.done }})</mat-checkbox>
         </div>
       </section>
@@ -20,4 +20,6 @@
       </form>
     </mat-card-footer>
   </mat-card>
+
+  <button type="button" (click)="clearAll()">Clear All</button>
 </div>
