@@ -1,7 +1,6 @@
 .main-display {
   width: 80%;
-  margin:auto;
-  margin-top: 2rem;
+  margin: 2rem auto auto;
 }
 
 .new-todo-footer {
@@ -11,4 +10,17 @@
   .todo-description {
     flex-grow: 1;
   }
+
+  .add-btn {
+    max-height: 2.5rem;
+    margin-top: 0.7rem;
+  }
+}
+
+.clear-all-btn {
+  margin: 0.5rem;
+}
+
+.delete-btn {
+  color: red;
 }

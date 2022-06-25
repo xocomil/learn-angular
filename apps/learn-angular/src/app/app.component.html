@@ -3,8 +3,11 @@
     <mat-card-title>Things to do</mat-card-title>
     <mat-card-content>
       <section>
-        <div *ngFor="let todo of todosList$ | async">
-          <mat-checkbox [(ngModel)]="todo.done"> {{ todo.description }} ({{ todo.done }})</mat-checkbox>
+        <div *ngFor="let todo of todosList$ | async; let i = index">
+          <mat-checkbox [ngModel]="todo.done" (change)="checkedStateChanged($event, i)">
+            {{ todo.description }}
+            <button mat-button class="delete-btn" (click)="deleteItem(i)">X</button>
+          </mat-checkbox>
         </div>
       </section>
     </mat-card-content>
@@ -15,11 +18,12 @@
             <mat-label>Something you need to do</mat-label>
             <input name="newTodoDescription" matInput placeholder="Something to do" [(ngModel)]="newTodoDescription" />
           </mat-form-field>
-          <button type="submit" mat-button matSuffix color="primary">Add</button>
+          <button type="submit" mat-raised-button matSuffix color="primary" class="add-btn" [disabled]="!newTodoDescription">Add</button>
         </div>
       </form>
+
+      <button mat-raised-button type="button" class="clear-all-btn" (click)="clearAll()">Clear All</button>
     </mat-card-footer>
   </mat-card>
-
-  <button type="button" (click)="clearAll()">Clear All</button>
 </div>
+<pre>{{ todosList$ | async | json }}</pre>

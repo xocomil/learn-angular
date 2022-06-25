@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { combineLatest, reduce, Subject } from 'rxjs';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { Store } from '@ngrx/store';
+import { addTodo, clearAll, deleteTodo, updateChecked } from './+store/todos.actions';
+import { todoListSelector } from './+store/todos.selectors';
 import { TodoListItem } from './models/todo-list-item';
 
 @Component({
@@ -11,27 +14,26 @@ export class AppComponent {
   title = 'learn-angular';
   newTodoDescription = '';
 
-  #newTodoListItem$ = new Subject<TodoListItem>();
-  #clearTodoList$ = new Subject<boolean>();
+  todosList$ = this.store.select(todoListSelector);
 
-  todosList$ = combineLatest({
-    newTodoListItem: this.#newTodoListItem$,
-    clearTodoList: this.#clearTodoList$,
-  }).pipe(reduce({ newTodoListItem }));
-
-  constructor() {
-.forEach((item) => {
-      this.#newTodoListItem$.next(item);
-    });
-  }
+  constructor(private readonly store: Store) {}
 
   addNewTodo(): void {
-    this.#newTodoListItem$.next({ done: false, description: this.newTodoDescription });
-
+    this.store.dispatch(addTodo({ todoListItem: getTodoListItem({ description: this.newTodoDescription }) }));
     this.newTodoDescription = '';
   }
 
   clearAll(): void {
-    this.#clearTodoList$.next(true);
+    this.store.dispatch(clearAll());
+  }
+
+  checkedStateChanged($event: MatCheckboxChange, arrayIndex: number): void {
+    this.store.dispatch(updateChecked({ arrayIndex, checked: $event.checked }));
+  }
+
+  deleteItem(arrayIndex: number): void {
+    this.store.dispatch(deleteTodo({ arrayIndex }));
   }
 }
+
+const getTodoListItem = ({ description = 'No description', done = false }: Partial<TodoListItem>): TodoListItem => ({ description, done });
