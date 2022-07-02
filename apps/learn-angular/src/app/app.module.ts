@@ -26,7 +26,6 @@ import { AppComponent } from './app.component';
     MatInputModule,
     StoreModule.forRoot({ todoState: todosReducer }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 100, logOnly: environment.production }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
