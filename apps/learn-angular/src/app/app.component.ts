@@ -27,8 +27,8 @@ export class AppComponent {
     this.store.dispatch(clearAll());
   }
 
-  checkedStateChanged($event: MatCheckboxChange, arrayIndex: number): void {
-    this.store.dispatch(updateChecked({ arrayIndex, checked: $event.checked }));
+  checkedStateChanged(checkboxChange: MatCheckboxChange, arrayIndex: number): void {
+    this.store.dispatch(updateChecked({ arrayIndex, checked: checkboxChange.checked }));
   }
 
   deleteItem(arrayIndex: number): void {
