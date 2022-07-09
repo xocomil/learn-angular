@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Store } from '@ngrx/store';
 import { addTodo, clearAll, deleteTodo, updateChecked } from './+store/todos.actions';
-import { todoListSelector } from './+store/todos.selectors';
+import { selectTodoList } from './+store/todos.selectors';
 import { TodoListItem } from './models/todo-list-item';
 
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'learn-angular';
   newTodoDescription = '';
 
-  todosList$ = this.store.select(todoListSelector);
+  todosList$ = this.store.select(selectTodoList);
 
   constructor(private readonly store: Store) {}
 
