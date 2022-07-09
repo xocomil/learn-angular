@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { State as TodoListState } from './todos.reducers';
 
-const todoStateSelector = createFeatureSelector<TodoListState>('todoState');
+const selectTodoState = createFeatureSelector<TodoListState>('todoState');
 
-export const todoListSelector = createSelector(todoStateSelector, (state) => state.todos);
+export const selectTodoList = createSelector(selectTodoState, (state) => state.todos);
