@@ -2,7 +2,7 @@
 
 exports[`AppComponent should match the snapshot 1`] = `
 <learn-angular-root
-  __ngContext__={[Function LRootView]}
+  __ngContext__={[Function Number]}
   newTodoDescription=""
   store={[Function MockStore]}
   title={[Function String]}
@@ -124,6 +124,7 @@ exports[`AppComponent should match the snapshot 1`] = `
                       data-placeholder="Something to do"
                       matinput=""
                       name="newTodoDescription"
+                      placeholder="Something to do"
                     />
                     <span
                       class="mat-form-field-label-wrapper"
