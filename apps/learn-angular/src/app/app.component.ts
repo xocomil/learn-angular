@@ -1,14 +1,32 @@
 import { Component } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Store } from '@ngrx/store';
 import { addTodo, clearAll, deleteTodo, updateChecked } from './+store/todos.actions';
 import { selectTodoList } from './+store/todos.selectors';
 import { TodoListItem } from './models/todo-list-item';
 
 @Component({
+  standalone: true,
   selector: 'learn-angular-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  imports: [
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
 })
 export class AppComponent {
   title = 'learn-angular';
