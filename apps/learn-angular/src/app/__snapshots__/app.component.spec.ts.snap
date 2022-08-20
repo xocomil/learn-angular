@@ -83,10 +83,21 @@ exports[`AppComponent should match the snapshot 1`] = `
                   </span>
                    Test todo item description 
                   <button
-                    class="delete-btn"
+                    class="mat-focus-indicator delete-btn mat-button mat-button-base _mat-animation-noopable"
                     mat-button=""
                   >
-                    X
+                    <span
+                      class="mat-button-wrapper"
+                    >
+                      X
+                    </span>
+                    <span
+                      class="mat-ripple mat-button-ripple"
+                      matripple=""
+                    />
+                    <span
+                      class="mat-button-focus-overlay"
+                    />
                   </button>
                 </span>
               </label>
@@ -161,23 +172,45 @@ exports[`AppComponent should match the snapshot 1`] = `
               </div>
             </mat-form-field>
             <button
-              class="add-btn"
+              class="mat-focus-indicator add-btn mat-raised-button mat-button-base mat-primary _mat-animation-noopable mat-button-disabled"
               color="primary"
-              disabled=""
+              disabled="true"
               mat-raised-button=""
               matsuffix=""
               type="submit"
             >
-              Add
+              <span
+                class="mat-button-wrapper"
+              >
+                Add
+              </span>
+              <span
+                class="mat-ripple mat-button-ripple"
+                matripple=""
+              />
+              <span
+                class="mat-button-focus-overlay"
+              />
             </button>
           </div>
         </form>
         <button
-          class="clear-all-btn"
+          class="mat-focus-indicator clear-all-btn mat-raised-button mat-button-base _mat-animation-noopable"
           mat-raised-button=""
           type="button"
         >
-          Clear All
+          <span
+            class="mat-button-wrapper"
+          >
+            Clear All
+          </span>
+          <span
+            class="mat-ripple mat-button-ripple"
+            matripple=""
+          />
+          <span
+            class="mat-button-focus-overlay"
+          />
         </button>
       </mat-card-footer>
     </mat-card>
