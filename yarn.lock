@@ -1826,10 +1826,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@faker-js/faker@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-7.3.0.tgz#a508df35ded585c4e071cb5d9d7c89623c837fae"
-  integrity sha512-1W0PZezq2rxlAssoWemi9gFRD8IQxvf0FPL5Km3TOmGHFG7ib0TbFBJ0yC7D/1NsxunjNTK6WjUXV8ao/mKZ5w==
+"@faker-js/faker@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-7.4.0.tgz#cac720d860a89d487b47e55e66a4fd114f1d3fe5"
+  integrity sha512-xDd3Tvkt2jgkx1LkuwwxpNBy/Oe+LkZBTwkgEFTiWpVSZgQ5sc/LenbHKRHbFl0dq/KFeeq/szyyPtpJRKY0fg==
 
 "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -2118,10 +2118,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@ngneat/spectator@10":
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/@ngneat/spectator/-/spectator-10.0.1.tgz#d1c0e55d909ee6e4af59c6e94027137d600bb4af"
-  integrity sha512-ukyEYoK/wCIpe8IFHR+Lx7NfcBzFuYWsvwyFgRbIAinBDyqmzCarr9DKm1n3UejLIuVR3vJakumfHhdblhEmEw==
+"@ngneat/spectator@11.1.3":
+  version "11.1.3"
+  resolved "https://registry.yarnpkg.com/@ngneat/spectator/-/spectator-11.1.3.tgz#de10535c32ddf414ae1e10e13fc7b2341ef5b936"
+  integrity sha512-RO0c3iw7UysPvXlLG76PgjuKJtDalOTpNtWd8hIpNXlpwwzGkuoU9VJlCCv6koNg7SnmftmYi2qaWyrRpu/YBA==
   dependencies:
     "@testing-library/dom" "^8.11.0"
     jquery "3.6.0"
@@ -7961,10 +7961,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-mocks@^14.0.1:
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/ng-mocks/-/ng-mocks-14.0.1.tgz#bdcbe624332ea1a38f383ab4ed04e91cc78c2c53"
-  integrity sha512-wwIBQimfU5cpDmpyRRYYCNf2/M+8MObOJvsrdxvlhSE2t8QAJn1bJXbyL5SFjw1T4DreHwbH3mQzUqPdPLeyBA==
+ng-mocks@14.1.3:
+  version "14.1.3"
+  resolved "https://registry.yarnpkg.com/ng-mocks/-/ng-mocks-14.1.3.tgz#ada0a130f7e9b7e7b54033d36451eeefc7a9bbb3"
+  integrity sha512-2cWwcQ1ziOKpMZQ+1Jy3YdrGwXB8LfHwiFiOaTIXwoIFeRdEXiVlHXqiiAa6n5xKh6GyhXvOfBJNd/TuglUPnw==
 
 nice-napi@^1.0.2:
   version "1.0.2"
