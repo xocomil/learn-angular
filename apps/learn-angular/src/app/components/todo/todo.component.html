@@ -1,14 +1,11 @@
 <mat-card>
   <mat-card-title>Things to do</mat-card-title>
   <mat-card-content>
-    <section>
-      <div *ngFor="let todo of todosList$ | async; let i = index">
-        <mat-checkbox [ngModel]="todo.done" (change)="checkedStateChanged($event, i)">
-          {{ todo.description }}
-          <button class="delete-btn" (click)="deleteItem(i)" mat-button>X</button>
-        </mat-checkbox>
-      </div>
-    </section>
+    <learn-angular-todo-list
+      [todosList]="todosList$ | ngrxPush"
+      (itemDeleted)="deleteItem($event)"
+      (itemCheckedChanged)="checkedStateChanged($event)"
+    ></learn-angular-todo-list>
   </mat-card-content>
   <mat-card-footer>
     <form (submit)="addNewTodo()">
