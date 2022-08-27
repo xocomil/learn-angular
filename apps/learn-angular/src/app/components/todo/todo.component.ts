@@ -11,6 +11,7 @@ import { Store } from '@ngrx/store';
 import * as todoActions from '../../+store/todos.actions';
 import { selectTodoList } from '../../+store/todos.selectors';
 import { TodoListItem } from '../../models/todo-list-item';
+import { TodoFooterComponent } from './todo-footer/todo-footer.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 @Component({
@@ -26,6 +27,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     MatInputModule,
     TodoListComponent,
     PushModule,
+    TodoFooterComponent,
   ],
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
@@ -33,15 +35,12 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent {
-  newTodoDescription = '';
-
   todosList$ = this.store.select(selectTodoList);
 
   constructor(private readonly store: Store) {}
 
-  addNewTodo(): void {
-    this.store.dispatch(todoActions.addTodo({ todoListItem: getTodoListItem({ description: this.newTodoDescription }) }));
-    this.newTodoDescription = '';
+  addNewTodo(todoListItem: TodoListItem): void {
+    this.store.dispatch(todoActions.addTodo({ todoListItem }));
   }
 
   clearAll(): void {
@@ -56,5 +55,3 @@ export class TodoComponent {
     this.store.dispatch(todoActions.deleteTodo(deleteEvent));
   }
 }
-
-const getTodoListItem = ({ description = 'No description', done = false }: Partial<TodoListItem>): TodoListItem => ({ description, done });

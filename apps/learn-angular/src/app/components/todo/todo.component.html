@@ -8,16 +8,6 @@
     ></learn-angular-todo-list>
   </mat-card-content>
   <mat-card-footer>
-    <form (submit)="addNewTodo()">
-      <div class="new-todo-footer">
-        <mat-form-field class="todo-description" appearance="fill">
-          <mat-label>Something you need to do</mat-label>
-          <input [(ngModel)]="newTodoDescription" name="newTodoDescription" matInput placeholder="Something to do" />
-        </mat-form-field>
-        <button class="add-btn" [disabled]="!newTodoDescription" type="submit" mat-raised-button matSuffix color="primary">Add</button>
-      </div>
-    </form>
-
-    <button class="clear-all-btn" (click)="clearAll()" mat-raised-button type="button">Clear All</button>
+    <learn-angular-todo-footer (newTodoAdded)="addNewTodo($event)" (clearAllPushed)="clearAll()"></learn-angular-todo-footer>
   </mat-card-footer>
 </mat-card>
