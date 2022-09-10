@@ -2133,6 +2133,13 @@
     replace-in-file "6.2.0"
     tslib "^2.1.0"
 
+"@ngrx/component@14.1":
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/component/-/component-14.1.0.tgz#d6aedf4827e48f6e6c0a589900f39e9b90ed077d"
+  integrity sha512-huncJwPyCdQ1obxMqC6I6RBsFnN/zJ0wbonvUi56kXt+PqcKJRtUEaLcuX9NanNqHZTdrdBPtWkcxQ6X0MiCIQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngrx/store-devtools@14.2.0":
   version "14.2.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-14.2.0.tgz#50a3d2fcd82aaefd2755874cd33879c75b267c50"
