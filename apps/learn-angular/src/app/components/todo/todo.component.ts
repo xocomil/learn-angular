@@ -35,7 +35,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent {
-  todosList$ = this.store.select(selectTodoList);
+  protected readonly todosList$ = this.store.select(selectTodoList);
 
   constructor(private readonly store: Store) {}
 
