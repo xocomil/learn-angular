@@ -3,7 +3,6 @@
 exports[`TodoComponent should match the snapshot 1`] = `
 <learn-angular-todo
   __ngContext__={[Function Number]}
-  newTodoDescription=""
   store={[Function MockStore]}
   todosList$={[Function Store]}
 >
@@ -18,196 +17,201 @@ exports[`TodoComponent should match the snapshot 1`] = `
     <mat-card-content
       class="mat-card-content"
     >
-      <section>
-        <div>
-          <mat-checkbox
-            class="mat-checkbox mat-accent _mat-animation-noopable ng-untouched ng-pristine ng-valid"
-          >
-            <label
-              class="mat-checkbox-layout"
-              for="mat-checkbox-2-input"
+      <learn-angular-todo-list>
+        <section>
+          <div>
+            <mat-checkbox
+              class="mat-checkbox mat-accent _mat-animation-noopable ng-untouched ng-pristine ng-valid"
             >
-              <span
-                class="mat-checkbox-inner-container"
+              <label
+                class="mat-checkbox-layout"
+                for="mat-checkbox-2-input"
               >
-                <input
-                  aria-checked="false"
-                  class="mat-checkbox-input cdk-visually-hidden"
-                  id="mat-checkbox-2-input"
-                  tabindex="0"
-                  type="checkbox"
-                />
                 <span
-                  class="mat-ripple mat-checkbox-ripple mat-focus-indicator"
-                  matripple=""
+                  class="mat-checkbox-inner-container"
                 >
-                  <span
-                    class="mat-ripple-element mat-checkbox-persistent-ripple"
+                  <input
+                    aria-checked="false"
+                    class="mat-checkbox-input cdk-visually-hidden"
+                    id="mat-checkbox-2-input"
+                    tabindex="0"
+                    type="checkbox"
                   />
-                </span>
-                <span
-                  class="mat-checkbox-frame"
-                />
-                <span
-                  class="mat-checkbox-background"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="mat-checkbox-checkmark"
-                    focusable="false"
-                    version="1.1"
-                    viewBox="0 0 24 24"
+                  <span
+                    class="mat-ripple mat-checkbox-ripple mat-focus-indicator"
+                    matripple=""
                   >
-                    <path
-                      class="mat-checkbox-checkmark-path"
-                      d="M4.1,12.7 9,17.6 20.3,6.3"
-                      fill="none"
-                      stroke="white"
+                    <span
+                      class="mat-ripple-element mat-checkbox-persistent-ripple"
                     />
-                  </svg>
-                  <span
-                    class="mat-checkbox-mixedmark"
-                  />
-                </span>
-              </span>
-              <span
-                class="mat-checkbox-label"
-              >
-                <span
-                  style="display: none;"
-                >
-                </span>
-                 Test todo item description 
-                <button
-                  class="mat-focus-indicator delete-btn mat-button mat-button-base _mat-animation-noopable"
-                  mat-button=""
-                >
-                  <span
-                    class="mat-button-wrapper"
-                  >
-                    X
                   </span>
                   <span
-                    class="mat-ripple mat-button-ripple"
-                    matripple=""
+                    class="mat-checkbox-frame"
                   />
                   <span
-                    class="mat-button-focus-overlay"
-                  />
-                </button>
-              </span>
-            </label>
-          </mat-checkbox>
-        </div>
-      </section>
+                    class="mat-checkbox-background"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="mat-checkbox-checkmark"
+                      focusable="false"
+                      version="1.1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        class="mat-checkbox-checkmark-path"
+                        d="M4.1,12.7 9,17.6 20.3,6.3"
+                        fill="none"
+                        stroke="white"
+                      />
+                    </svg>
+                    <span
+                      class="mat-checkbox-mixedmark"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="mat-checkbox-label"
+                >
+                  <span
+                    style="display: none;"
+                  >
+                  </span>
+                   Test todo item description 
+                  <button
+                    class="mat-focus-indicator delete-btn mat-button mat-button-base _mat-animation-noopable"
+                    mat-button=""
+                  >
+                    <span
+                      class="mat-button-wrapper"
+                    >
+                      X
+                    </span>
+                    <span
+                      class="mat-ripple mat-button-ripple"
+                      matripple=""
+                    />
+                    <span
+                      class="mat-button-focus-overlay"
+                    />
+                  </button>
+                </span>
+              </label>
+            </mat-checkbox>
+          </div>
+        </section>
+      </learn-angular-todo-list>
     </mat-card-content>
     <mat-card-footer
       class="mat-card-footer"
     >
-      <form
-        class="ng-untouched ng-pristine ng-valid"
-        novalidate=""
-      >
-        <div
-          class="new-todo-footer"
+      <learn-angular-todo-footer>
+        <form
+          class="ng-untouched ng-pristine ng-valid"
+          novalidate=""
         >
-          <mat-form-field
-            appearance="fill"
-            class="mat-form-field todo-description mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid _mat-animation-noopable"
+          <div
+            class="new-todo-footer"
           >
-            <div
-              class="mat-form-field-wrapper"
+            <mat-form-field
+              appearance="fill"
+              class="mat-form-field todo-description mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid _mat-animation-noopable"
             >
               <div
-                class="mat-form-field-flex"
+                class="mat-form-field-wrapper"
               >
                 <div
-                  class="mat-form-field-infix"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-required="false"
-                    class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored"
-                    data-placeholder="Something to do"
-                    matinput=""
-                    name="newTodoDescription"
-                    placeholder="Something to do"
-                  />
-                  <span
-                    class="mat-form-field-label-wrapper"
-                  >
-                    <label
-                      class="mat-form-field-label mat-empty mat-form-field-empty"
-                    >
-                      <mat-label>
-                        Something you need to do
-                      </mat-label>
-                    </label>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="mat-form-field-underline"
-              >
-                <span
-                  class="mat-form-field-ripple"
-                />
-              </div>
-              <div
-                class="mat-form-field-subscript-wrapper"
-              >
-                <div
-                  class="mat-form-field-hint-wrapper ng-trigger ng-trigger-transitionMessages"
-                  style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+                  class="mat-form-field-flex"
                 >
                   <div
-                    class="mat-form-field-hint-spacer"
+                    class="mat-form-field-infix"
+                  >
+                    <input
+                      aria-invalid="false"
+                      aria-required="false"
+                      autocomplete="off"
+                      class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored"
+                      data-placeholder="Something to do"
+                      matinput=""
+                      name="newTodoDescription"
+                      placeholder="Something to do"
+                    />
+                    <span
+                      class="mat-form-field-label-wrapper"
+                    >
+                      <label
+                        class="mat-form-field-label mat-empty mat-form-field-empty"
+                      >
+                        <mat-label>
+                          Something you need to do
+                        </mat-label>
+                      </label>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="mat-form-field-underline"
+                >
+                  <span
+                    class="mat-form-field-ripple"
                   />
                 </div>
+                <div
+                  class="mat-form-field-subscript-wrapper"
+                >
+                  <div
+                    class="mat-form-field-hint-wrapper ng-trigger ng-trigger-transitionMessages"
+                    style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+                  >
+                    <div
+                      class="mat-form-field-hint-spacer"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </mat-form-field>
-          <button
-            class="mat-focus-indicator add-btn mat-raised-button mat-button-base mat-primary _mat-animation-noopable mat-button-disabled"
-            color="primary"
-            disabled="true"
-            mat-raised-button=""
-            matsuffix=""
-            type="submit"
-          >
-            <span
-              class="mat-button-wrapper"
+            </mat-form-field>
+            <button
+              class="mat-focus-indicator add-btn mat-raised-button mat-button-base mat-primary _mat-animation-noopable mat-button-disabled"
+              color="primary"
+              disabled="true"
+              mat-raised-button=""
+              matsuffix=""
+              type="submit"
             >
-              Add
-            </span>
-            <span
-              class="mat-ripple mat-button-ripple"
-              matripple=""
-            />
-            <span
-              class="mat-button-focus-overlay"
-            />
-          </button>
-        </div>
-      </form>
-      <button
-        class="mat-focus-indicator clear-all-btn mat-raised-button mat-button-base _mat-animation-noopable"
-        mat-raised-button=""
-        type="button"
-      >
-        <span
-          class="mat-button-wrapper"
+              <span
+                class="mat-button-wrapper"
+              >
+                Add
+              </span>
+              <span
+                class="mat-ripple mat-button-ripple"
+                matripple=""
+              />
+              <span
+                class="mat-button-focus-overlay"
+              />
+            </button>
+          </div>
+        </form>
+        <button
+          class="mat-focus-indicator clear-all-btn mat-raised-button mat-button-base _mat-animation-noopable"
+          mat-raised-button=""
+          type="button"
         >
-          Clear All
-        </span>
-        <span
-          class="mat-ripple mat-button-ripple"
-          matripple=""
-        />
-        <span
-          class="mat-button-focus-overlay"
-        />
-      </button>
+          <span
+            class="mat-button-wrapper"
+          >
+            Clear All
+          </span>
+          <span
+            class="mat-ripple mat-button-ripple"
+            matripple=""
+          />
+          <span
+            class="mat-button-focus-overlay"
+          />
+        </button>
+      </learn-angular-todo-footer>
     </mat-card-footer>
   </mat-card>
 </learn-angular-todo>
