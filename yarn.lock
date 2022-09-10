@@ -1858,7 +1858,7 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@hirez_io/observer-spy@^2.2.0":
+"@hirez_io/observer-spy@2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@hirez_io/observer-spy/-/observer-spy-2.2.0.tgz#3b1df531ba333a9a6cbbec0333d3fbdc4c68cc3c"
   integrity sha512-G9nv87vjRILgB/X1AtKBv1DZX7yXSYAOCXon/f+QULKoXVhVehYUF5Lv0SQ97ebf1sA48Z2CyQ9h2v4Pz6DgaQ==
@@ -2160,14 +2160,14 @@
     replace-in-file "6.2.0"
     tslib "^2.1.0"
 
-"@ngrx/component@14.1":
+"@ngrx/component@14.1.0":
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/component/-/component-14.1.0.tgz#d6aedf4827e48f6e6c0a589900f39e9b90ed077d"
   integrity sha512-huncJwPyCdQ1obxMqC6I6RBsFnN/zJ0wbonvUi56kXt+PqcKJRtUEaLcuX9NanNqHZTdrdBPtWkcxQ6X0MiCIQ==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/eslint-plugin@^14.3.1":
+"@ngrx/eslint-plugin@14.3.1":
   version "14.3.1"
   resolved "https://registry.yarnpkg.com/@ngrx/eslint-plugin/-/eslint-plugin-14.3.1.tgz#f070d2eddec0245de2ecfed963df23cc59444d12"
   integrity sha512-dIYRw/oVD6BUVma9QBMc7gdXQUegOBAlrIdOj+sKojdwrwUQsoshQIsRBXccX+CgZt19WdbxCyVMG+6CXAy93A==
@@ -4766,7 +4766,7 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-cypress@^10.6.0:
+cypress@10.6.0:
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-10.6.0.tgz#13f46867febf2c3715874ed5dce9c2e946b175fe"
   integrity sha512-6sOpHjostp8gcLO34p6r/Ci342lBs8S5z9/eb3ZCQ22w2cIhMWGUoGKkosabPBfKcvRS9BE4UxybBtlIs8gTQA==
@@ -5485,14 +5485,14 @@ eslint-etc@^5.1.0:
     tsutils "^3.17.1"
     tsutils-etc "^1.4.1"
 
-eslint-plugin-cypress@^2.12.1:
+eslint-plugin-cypress@2.12.1:
   version "2.12.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.12.1.tgz#9aeee700708ca8c058e00cdafe215199918c2632"
   integrity sha512-c2W/uPADl5kospNDihgiLc7n87t5XhUbFDoTl6CfVkmG+kDAb5Ux10V9PoLPu9N+r7znpc+iQlcmAqT1A/89HA==
   dependencies:
     globals "^11.12.0"
 
-eslint-plugin-ngrx@^2.1.4:
+eslint-plugin-ngrx@2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ngrx/-/eslint-plugin-ngrx-2.1.4.tgz#cf1e0238ca9a1feb39b72ed3361f85cee99b8062"
   integrity sha512-ynPPqguIpeiRPcqmkUBx+cZxzMKpx1W2T3bvraai+KZ+LZnkRouWhnr/9L0buN/Efrk7BkpAFKGy+OojPHo+ug==
@@ -9421,7 +9421,7 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
 
-prettier-plugin-organize-attributes@^0.0.5:
+prettier-plugin-organize-attributes@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/prettier-plugin-organize-attributes/-/prettier-plugin-organize-attributes-0.0.5.tgz#46e54533936fc42a3cff3d876a738a3f98df0360"
   integrity sha512-dSts16q8wd+oq8Zwk5mwmYXo1aN3B+ZkEJqx/ar5fedNHdOvx7S4XDMH/pNK7rmBW0bPXkp/kJX5gAANsWzh3A==
@@ -10524,7 +10524,7 @@ stylelint-config-recommended@^8.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-8.0.0.tgz#7736be9984246177f017c39ec7b1cd0f19ae9117"
   integrity sha512-IK6dWvE000+xBv9jbnHOnBq01gt6HGVB2ZTsot+QsMpe82doDQ9hvplxfv4YnpEuUwVGGd9y6nbaAnhrjcxhZQ==
 
-stylelint-config-standard-scss@^5.0.0:
+stylelint-config-standard-scss@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-standard-scss/-/stylelint-config-standard-scss-5.0.0.tgz#afc5e43c73e7a15875b8f30f54204b01a2634743"
   integrity sha512-zoXLibojHZYPFjtkc4STZtAJ2yGTq3Bb4MYO0oiyO6f/vNxDKRcSDZYoqN260Gv2eD5niQIr1/kr5SXlFj9kcQ==
@@ -10550,7 +10550,7 @@ stylelint-scss@^4.0.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint@^14.10.0:
+stylelint@14.10.0:
   version "14.10.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-14.10.0.tgz#c588f5cd47cd214cf1acee5bc165961b6a3ad836"
   integrity sha512-VAmyKrEK+wNFh9R8mNqoxEFzaa4gsHGhcT4xgkQDuOA5cjF6CaNS8loYV7gpi4tIZBPUyXesotPXzJAMN8VLOQ==
@@ -11666,7 +11666,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zone.js@~0.11.4:
+zone.js@0.11.5:
   version "0.11.5"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.11.5.tgz#ab0b449e91fadb5ebb2db189ffe1b7b6048dc8b1"
   integrity sha512-D1/7VxEuQ7xk6z/kAROe4SUbd9CzxY4zOwVGnGHerd/SgLIVU5f4esDzQUsOCeArn933BZfWMKydH7l7dPEp0g==
