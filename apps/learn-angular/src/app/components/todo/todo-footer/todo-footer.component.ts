@@ -39,7 +39,7 @@ export class TodoFooterComponent {
   }
 
   clearAll(): void {
-    this.newTodoAdded.emit();
+    this.clearAllPushed.emit();
   }
 }
 

@@ -1,4 +1,3 @@
-import { MatCheckboxChange } from '@angular/material/checkbox';
 import { faker } from '@faker-js/faker/locale/en';
 import { createComponentFactory } from '@ngneat/spectator';
 import { Store } from '@ngrx/store';
@@ -31,30 +30,18 @@ describe('TodoComponent', () => {
   });
 
   describe('addNewTodo()', () => {
-    it('should dispatch an addNewTodo action', () => {
+    it('should dispatch an addTodo action', () => {
       const newTodoDescription = faker.random.words();
 
-      const spectator = createComponent({ props: { newTodoDescription } });
+      const spectator = createComponent();
       const store = spectator.inject(Store);
       const dispatchSpy = jest.spyOn(store, 'dispatch');
 
-      const expected = addTodo({ todoListItem: { description: newTodoDescription, done: false } });
+      spectator.component.addNewTodo({ description: newTodoDescription, done: true });
 
-      spectator.component.addNewTodo();
+      const expected = addTodo({ todoListItem: { description: newTodoDescription, done: true } });
 
       expect(dispatchSpy).toHaveBeenCalledWith(expected);
-    });
-
-    it('should clear the newTodoDescription property', () => {
-      const newTodoDescription = faker.random.words();
-
-      const spectator = createComponent({ props: { newTodoDescription } });
-
-      expect(spectator.component.newTodoDescription).toBe(newTodoDescription);
-
-      spectator.component.addNewTodo();
-
-      expect(spectator.component.newTodoDescription).toBe('');
     });
   });
 
@@ -82,7 +69,7 @@ describe('TodoComponent', () => {
 
         const expected = updateChecked({ arrayIndex, checked: testCase });
 
-        spectator.component.checkedStateChanged({ checked: testCase } as MatCheckboxChange, arrayIndex);
+        spectator.component.checkedStateChanged({ checked: testCase, arrayIndex });
 
         expect(dispatchSpy).toHaveBeenCalledWith(expected);
       });
@@ -98,7 +85,7 @@ describe('TodoComponent', () => {
 
       const expected = deleteTodo({ arrayIndex });
 
-      spectator.component.deleteItem(arrayIndex);
+      spectator.component.deleteItem({ arrayIndex });
 
       expect(dispatchSpy).toHaveBeenCalledWith(expected);
     });
