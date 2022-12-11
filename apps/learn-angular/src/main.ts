@@ -1,8 +1,8 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { todosReducer } from './app/+store/todos.reducers';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
@@ -12,11 +12,5 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    importProvidersFrom(
-      BrowserAnimationsModule,
-      StoreModule.forRoot({ todoState: todosReducer }, {}),
-      StoreDevtoolsModule.instrument({ maxAge: 100, logOnly: environment.production })
-    ),
-  ],
+  providers: [provideAnimations(), provideStore({ todoState: todosReducer }), provideStoreDevtools()],
 }).catch((err) => console.error(err));
