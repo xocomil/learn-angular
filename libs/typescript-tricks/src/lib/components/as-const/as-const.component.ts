@@ -44,6 +44,7 @@ const Fruit = {
   Pear: 'pear',
   Orange: 'orange',
   Mango: 'mango',
+  Tomato: 'tomato',
 } as const;
 
 type Fruit = typeof Fruit[keyof typeof Fruit];
@@ -58,6 +59,8 @@ const getFruitName = (fruit: Fruit): string => {
       return 'Orange';
     case Fruit.Mango:
       return 'Mango';
+    case Fruit.Tomato:
+      return 'Tomato';
   }
 };
 
