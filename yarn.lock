@@ -2575,10 +2575,10 @@
     "@material/theme" "15.0.0-canary.7971d6ad5.0"
     tslib "^2.1.0"
 
-"@ngneat/spectator@12.2.1":
-  version "12.2.1"
-  resolved "https://registry.yarnpkg.com/@ngneat/spectator/-/spectator-12.2.1.tgz#0c41fdc8ef32072c9b89b537a43cf90dad6bd37f"
-  integrity sha512-gsalmkLnZb/Q9+IbaLnRS/Hw1lEoSoz+hAJkKc7mqQzqkJzGpD88L5VgXAGdi9Jn/mPLx0obJJ+2niaQ4D0yJw==
+"@ngneat/spectator@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/spectator/-/spectator-13.0.0.tgz#de85ce9f5b3b7b64d68c7645a7038dfe5806dd09"
+  integrity sha512-oDTBF6vWJjtXyEQcaqOFZWg9oRSqd3XKa6o5jpVFKNbb1sYvuLQzWwiilxvutHrsWPxtz7hf4AwuSNo+jXskCw==
   dependencies:
     "@testing-library/dom" "^8.11.0"
     jquery "3.6.0"
@@ -3257,10 +3257,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.13.tgz#dff34f226ec1ac0432ae3b136ec5552bd3b9c0fe"
   integrity sha512-IASpMGVcWpUsx5xBOrxMj7Bl8lqfuTY7FKAnPmu5cHkfQVWF8GulWS1jbRqA934qZL35xh5xN/+Xe/i26Bod4w==
 
-"@types/node@16.11.7":
-  version "16.11.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.7.tgz#36820945061326978c42a01e56b61cd223dfdc42"
-  integrity sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==
+"@types/node@18.11.18":
+  version "18.11.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
+  integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
 
 "@types/node@^14.14.31":
   version "14.18.34"
@@ -5183,10 +5183,10 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-cypress@^11.0.0:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-11.2.0.tgz#63edef8c387b687066c5493f6f0ad7b9ced4b2b7"
-  integrity sha512-u61UGwtu7lpsNWLUma/FKNOsrjcI6wleNmda/TyKHe0dOBcVjbCPlp1N6uwFZ0doXev7f/91YDpU9bqDCFeBLA==
+cypress@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-12.3.0.tgz#ae3fb0540aef4b5eab1ef2bcd0760caf2992b8bf"
+  integrity sha512-ZQNebibi6NBt51TRxRMYKeFvIiQZ01t50HSy7z/JMgRVqBUey3cdjog5MYEbzG6Ktti5ckDt1tfcC47lmFwXkw==
   dependencies:
     "@cypress/request" "^2.88.10"
     "@cypress/xvfb" "^1.2.4"
