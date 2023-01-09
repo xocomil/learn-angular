@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -7,15 +7,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PushModule } from '@ngrx/component';
-import { Store } from '@ngrx/store';
-import * as todoActions from '../../+store/todos.actions';
-import { selectTodoList } from '../../+store/todos.selectors';
-import { TodoListItem } from '../../models/todo-list-item';
 import { TodoFooterComponent } from './todo-footer/todo-footer.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoListStore } from './todo.list.store';
 
 @Component({
-  selector: 'learn-angular-todo',
+  selector: 'learn-angular-todo[todoListId]',
   standalone: true,
   imports: [
     CommonModule,
@@ -29,29 +26,39 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     PushModule,
     TodoFooterComponent,
   ],
-  templateUrl: './todo.component.html',
+  template: `
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{ title$ | ngrxPush }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <learn-angular-todo-list></learn-angular-todo-list>
+      </mat-card-content>
+      <mat-card-footer>
+        <learn-angular-todo-footer></learn-angular-todo-footer>
+      </mat-card-footer>
+    </mat-card>
+  `,
   styleUrls: ['./todo.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [TodoListStore],
 })
 export class TodoComponent {
-  protected readonly todosList$ = this.store.select(selectTodoList);
+  #todoListStore = inject(TodoListStore);
 
-  constructor(private readonly store: Store) {}
+  todoList$ = this.#todoListStore.todoList$;
 
-  addNewTodo(todoListItem: TodoListItem): void {
-    this.store.dispatch(todoActions.addTodo({ todoListItem }));
+  #todoListId = -1;
+  @Input() get todoListId(): number {
+    return this.#todoListId;
   }
 
-  clearAll(): void {
-    this.store.dispatch(todoActions.clearAll());
+  set todoListId(value: number) {
+    this.#todoListId = value;
+
+    this.#todoListStore.setId(value);
   }
 
-  checkedStateChanged(checkedEvent: { checked: boolean; arrayIndex: number }): void {
-    this.store.dispatch(todoActions.updateChecked(checkedEvent));
-  }
-
-  deleteItem(deleteEvent: { arrayIndex: number }): void {
-    this.store.dispatch(todoActions.deleteTodo(deleteEvent));
-  }
+  protected readonly title$ = this.#todoListStore.title$;
 }

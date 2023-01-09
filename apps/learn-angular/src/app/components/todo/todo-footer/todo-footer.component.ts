@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TodoListItem } from '../../../models/todo-list-item';
+import { TodoListStore } from '../todo.list.store';
 
 @Component({
   selector: 'learn-angular-todo-footer',
@@ -28,18 +29,17 @@ import { TodoListItem } from '../../../models/todo-list-item';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoFooterComponent {
+  #todoListStore = inject(TodoListStore);
+
   protected newTodoDescription = '';
 
-  @Output() newTodoAdded = new EventEmitter<TodoListItem>();
-  @Output() clearAllPushed = new EventEmitter<void>();
-
   addNewTodo(): void {
-    this.newTodoAdded.emit(getTodoListItem({ description: this.newTodoDescription }));
+    this.#todoListStore.addToDo(getTodoListItem({ description: this.newTodoDescription }));
     this.newTodoDescription = '';
   }
 
   clearAll(): void {
-    this.clearAllPushed.emit();
+    this.#todoListStore.clearAll();
   }
 }
 
