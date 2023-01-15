@@ -27,6 +27,7 @@
     "@ngrx/store": "15.1.0",
     "@ngrx/store-devtools": "15.1.0",
     "@nrwl/angular": "15.5.1",
+    "mutative": "^0.2.2",
     "prettier-plugin-organize-attributes": "^0.0.5",
     "rxjs": "~7.8.0",
     "stylelint": "^14.16.1",
