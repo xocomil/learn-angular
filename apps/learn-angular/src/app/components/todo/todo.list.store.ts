@@ -1,32 +1,37 @@
 import { inject, Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
+import { create } from 'mutative';
 import { Observable, switchMap, tap, withLatestFrom } from 'rxjs';
+import { TodoActions } from '../../+store/todos.actions';
 import { selectTodoList } from '../../+store/todos.selectors';
 import { TodoListItem } from '../../models/todo-list-item';
+import { TodoList } from '../../models/todo-list.model';
 
 export type CheckedEvent = { checked: boolean; arrayIndex: number };
 
 type TodoListState = {
-  title: string;
-  id: number;
-  items: TodoListItem[];
+  editTitle: boolean;
+  todoList: TodoList;
 };
 
 const initialState = (): TodoListState => ({
-  title: 'Stuff To Do',
-  id: -1,
-  items: [],
+  editTitle: false,
+  todoList: {
+    title: 'Stuff To Do',
+    id: -1,
+    items: [],
+  },
 });
 
 @Injectable()
 export class TodoListStore extends ComponentStore<TodoListState> {
   #store = inject(Store);
 
-  readonly id$ = this.select((state) => state.id);
-  readonly title$ = this.select((state) => state.title);
-  readonly items$ = this.select((state) => state.items);
-  readonly todoList$ = this.select((state) => state);
+  readonly id$ = this.select((state) => state.todoList.id);
+  readonly title$ = this.select((state) => state.todoList.title);
+  readonly items$ = this.select((state) => state.todoList.items);
+  readonly todoList$ = this.select((state) => state.todoList);
 
   constructor() {
     super(initialState());
@@ -37,7 +42,7 @@ export class TodoListStore extends ComponentStore<TodoListState> {
       switchMap((todoListId) => this.#store.select(selectTodoList(todoListId))),
       tap((todoList) => {
         if (todoList) {
-          this.patchState(todoList);
+          this.patchState({ todoList });
 
           return;
         }
@@ -51,15 +56,25 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     todoItem$.pipe(
       withLatestFrom(this.items$),
       tap(([item, listItems]) => {
-        this.patchState({ items: [...listItems, item] });
+        this.#updateTodoItems([...listItems, item]);
+
+        this.#listChanged();
       })
     )
+  );
+
+  readonly #updateTodoItems = this.updater((state, items: TodoListItem[]) =>
+    create(state, (draft) => {
+      draft.todoList.items = items;
+    })
   );
 
   readonly clearAll = this.effect((clearAll$) =>
     clearAll$.pipe(
       tap(() => {
-        this.patchState({ items: [] });
+        this.#updateTodoItems([]);
+
+        this.#listChanged();
       })
     )
   );
@@ -68,7 +83,9 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     checkEvent$.pipe(
       withLatestFrom(this.items$),
       tap(([{ checked, arrayIndex }, listItems]) => {
-        this.patchState({ items: listItems.map((item, index) => (arrayIndex === index ? { ...item, done: checked } : item)) });
+        this.#updateTodoItems(listItems.map((item, index) => (arrayIndex === index ? { ...item, done: checked } : item)));
+
+        this.#listChanged();
       })
     )
   );
@@ -77,7 +94,18 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     deletedIndex$.pipe(
       withLatestFrom(this.items$),
       tap(([arrayIndex, listItems]) => {
-        this.patchState({ items: listItems.filter((item, index) => index !== arrayIndex) });
+        this.#updateTodoItems(listItems.filter((item, index) => index !== arrayIndex));
+
+        this.#listChanged();
+      })
+    )
+  );
+
+  readonly #listChanged = this.effect((listChanged$: Observable<void>) =>
+    listChanged$.pipe(
+      withLatestFrom(this.todoList$),
+      tap(([, todoList]) => {
+        this.#store.dispatch(TodoActions.todoListChanged({ todoListId: todoList.id, changedList: todoList }));
       })
     )
   );
