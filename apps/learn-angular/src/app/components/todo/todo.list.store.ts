@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import { Observable, switchMap, tap, withLatestFrom } from 'rxjs';
+import { TodoActions } from '../../+store/todos.actions';
 import { selectTodoList } from '../../+store/todos.selectors';
 import { TodoListItem } from '../../models/todo-list-item';
 
@@ -51,7 +52,9 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     todoItem$.pipe(
       withLatestFrom(this.items$),
       tap(([item, listItems]) => {
-        this.patchState({ items: [...listItems, item] });
+        this.patchState({items: [...listItems, item]});
+
+        this.#listChanged();
       })
     )
   );
@@ -59,7 +62,9 @@ export class TodoListStore extends ComponentStore<TodoListState> {
   readonly clearAll = this.effect((clearAll$) =>
     clearAll$.pipe(
       tap(() => {
-        this.patchState({ items: [] });
+        this.patchState({items: []});
+
+        this.#listChanged();
       })
     )
   );
@@ -67,8 +72,10 @@ export class TodoListStore extends ComponentStore<TodoListState> {
   readonly itemChecked = this.effect((checkEvent$: Observable<CheckedEvent>) =>
     checkEvent$.pipe(
       withLatestFrom(this.items$),
-      tap(([{ checked, arrayIndex }, listItems]) => {
-        this.patchState({ items: listItems.map((item, index) => (arrayIndex === index ? { ...item, done: checked } : item)) });
+      tap(([{checked, arrayIndex}, listItems]) => {
+        this.patchState({items: listItems.map((item, index) => (arrayIndex === index ? {...item, done: checked} : item))});
+
+        this.#listChanged();
       })
     )
   );
@@ -77,7 +84,18 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     deletedIndex$.pipe(
       withLatestFrom(this.items$),
       tap(([arrayIndex, listItems]) => {
-        this.patchState({ items: listItems.filter((item, index) => index !== arrayIndex) });
+        this.patchState({items: listItems.filter((item, index) => index !== arrayIndex)});
+
+        this.#listChanged();
+      })
+    )
+  );
+
+  readonly #listChanged = this.effect((listChanged$: Observable<void>) =>
+    listChanged$.pipe(
+      withLatestFrom(this.todoList$),
+      tap(([, todoList]) => {
+        this.#store.dispatch(TodoActions.todoListChanged({todoListId: todoList.id, changedList: todoList}));
       })
     )
   );

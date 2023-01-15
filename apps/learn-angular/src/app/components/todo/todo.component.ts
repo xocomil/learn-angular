@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { PushModule } from '@ngrx/component';
 import { TodoFooterComponent } from './todo-footer/todo-footer.component';
@@ -21,6 +22,7 @@ import { TodoListStore } from './todo.list.store';
     MatCardModule,
     MatCheckboxModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
     TodoListComponent,
     PushModule,
@@ -29,13 +31,18 @@ import { TodoListStore } from './todo.list.store';
   template: `
     <mat-card appearance="outlined">
       <mat-card-header>
-        <mat-card-title>{{ title$ | ngrxPush }}</mat-card-title>
+        <mat-card-title
+          >{{ title$ | ngrxPush }}
+          <button (click)="editTitle()" type="button" mat-raised-button>
+            <mat-icon fontIcon="edit"></mat-icon>
+          </button>
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <learn-angular-todo-list></learn-angular-todo-list>
+        <learn-angular-todo-list />
       </mat-card-content>
       <mat-card-footer>
-        <learn-angular-todo-footer></learn-angular-todo-footer>
+        <learn-angular-todo-footer />
       </mat-card-footer>
     </mat-card>
   `,
@@ -61,4 +68,8 @@ export class TodoComponent {
   }
 
   protected readonly title$ = this.#todoListStore.title$;
+
+  editTitle() {
+    console.log('edit');
+  }
 }
