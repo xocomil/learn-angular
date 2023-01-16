@@ -45,7 +45,7 @@
     "@angular/language-service": "15.1.0",
     "@faker-js/faker": "7.6.0",
     "@hirez_io/observer-spy": "^2.2.0",
-    "@ngneat/spectator": "13.0.0",
+    "@ngneat/spectator": "14.0.0",
     "@nrwl/cli": "15.5.1",
     "@nrwl/cypress": "15.5.1",
     "@nrwl/eslint-plugin-nx": "15.5.1",
