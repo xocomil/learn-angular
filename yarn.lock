@@ -8958,10 +8958,10 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ng-mocks@14.5.2:
-  version "14.5.2"
-  resolved "https://registry.yarnpkg.com/ng-mocks/-/ng-mocks-14.5.2.tgz#c04dbb083deaf655c14114c8cb48200d789bb5f6"
-  integrity sha512-fS7rt4AAB8kzGDfpLURm9hec2VYAVl+lmTO92vOeCZn+iKIObR0nuGA8TZP+sb97lcjqtDGNLkAzcRElQhQbuw==
+ng-mocks@14.6.0:
+  version "14.6.0"
+  resolved "https://registry.yarnpkg.com/ng-mocks/-/ng-mocks-14.6.0.tgz#d02c7038c5b028b4512d8156e9db2160639a8b3e"
+  integrity sha512-etGBdUkEkvDDGecRMj+ymPO2T0kcZme+wX4KAgOAFm2NJoRox7wPLtdxxD0CmnmrTcArW69KpkQKG2w9ILhg4w==
 
 nice-napi@^1.0.2:
   version "1.0.2"
