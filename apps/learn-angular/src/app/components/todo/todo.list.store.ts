@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { Store } from '@ngrx/store';
 import { create } from 'mutative';
-import { Observable, switchMap, tap, withLatestFrom } from 'rxjs';
+import { map, Observable, switchMap, tap, withLatestFrom } from 'rxjs';
 import { TodoActions } from '../../+store/todos.actions';
 import { selectTodoList } from '../../+store/todos.selectors';
 import { TodoListItem } from '../../models/todo-list-item';
@@ -32,6 +32,8 @@ export class TodoListStore extends ComponentStore<TodoListState> {
   readonly title$ = this.select((state) => state.todoList.title);
   readonly items$ = this.select((state) => state.todoList.items);
   readonly todoList$ = this.select((state) => state.todoList);
+  readonly editTitle$ = this.select((state) => state.editTitle);
+  readonly editTitleIcon$ = this.editTitle$.pipe(map((editTitle) => (editTitle ? 'save' : 'edit')));
 
   constructor() {
     super(initialState());
@@ -109,4 +111,25 @@ export class TodoListStore extends ComponentStore<TodoListState> {
       })
     )
   );
+
+  toggleEditTitle = this.updater((state) => {
+    return create(state, (draft) => {
+      draft.editTitle = !state.editTitle;
+    });
+  });
+
+  readonly setTitle = this.effect((newTitle$: Observable<string>) =>
+    newTitle$.pipe(
+      tap((newTitle) => {
+        this.#updateTitle({ newTitle });
+        this.#listChanged();
+      })
+    )
+  );
+
+  readonly #updateTitle = this.updater((state, { newTitle }: { newTitle: string }) => {
+    return create(state, (draft) => {
+      draft.todoList.title = newTitle;
+    });
+  });
 }
