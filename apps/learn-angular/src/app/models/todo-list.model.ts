@@ -1,7 +1,7 @@
 import { TodoListItem } from './todo-list-item';
 
 export type TodoList = {
-  id: number;
+  id: string;
   title: string;
   items: TodoListItem[];
 };
