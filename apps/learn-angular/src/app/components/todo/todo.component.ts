@@ -35,8 +35,11 @@ import { TodoListStore } from './todo.list.store';
           <span *ngIf="!(editTitle$ | ngrxPush); else editTitleTemplate">
             {{ title$ | ngrxPush }}
           </span>
-          <button (click)="editTitle()" type="button" mat-raised-button>
-            <mat-icon [fontIcon]="(editTitleIcon$ | ngrxPush) ?? 'edit'"></mat-icon>
+          <button (click)="editTitle()" type="button" mat-icon-button color="primary">
+            <mat-icon [fontIcon]="(editTitleIcon$ | ngrxPush) ?? 'edit'" />
+          </button>
+          <button (click)="deleteList()" type="button" mat-icon-button color="warn">
+            <mat-icon fontIcon="delete" />
           </button>
         </mat-card-title>
       </mat-card-header>
@@ -67,12 +70,12 @@ export class TodoComponent {
   protected editTitle$ = this.#todoListStore.editTitle$;
   protected editTitleIcon$ = this.#todoListStore.editTitleIcon$;
 
-  #todoListId = -1;
-  @Input() get todoListId(): number {
+  #todoListId = '-1';
+  @Input() get todoListId(): string {
     return this.#todoListId;
   }
 
-  set todoListId(value: number) {
+  set todoListId(value: string) {
     this.#todoListId = value;
 
     this.#todoListStore.setId(value);
@@ -80,11 +83,14 @@ export class TodoComponent {
 
   protected readonly title$ = this.#todoListStore.title$;
 
-  editTitle() {
+  protected editTitle() {
     this.#todoListStore.toggleEditTitle();
   }
 
-  titleChanged(newTitle: string) {
+  protected titleChanged(newTitle: string) {
     this.#todoListStore.setTitle(newTitle);
+  }
+  protected deleteList() {
+    this.#todoListStore.deleteList();
   }
 }

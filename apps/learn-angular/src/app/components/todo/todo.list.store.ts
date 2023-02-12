@@ -19,7 +19,7 @@ const initialState = (): TodoListState => ({
   editTitle: false,
   todoList: {
     title: 'Stuff To Do',
-    id: -1,
+    id: '-1',
     items: [],
   },
 });
@@ -39,7 +39,7 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     super(initialState());
   }
 
-  readonly setId = this.effect((id$: Observable<number>) =>
+  readonly setId = this.effect((id$: Observable<string>) =>
     id$.pipe(
       switchMap((todoListId) => this.#store.select(selectTodoList(todoListId))),
       tap((todoList) => {
@@ -61,6 +61,16 @@ export class TodoListStore extends ComponentStore<TodoListState> {
         this.#updateTodoItems([...listItems, item]);
 
         this.#listChanged();
+      })
+    )
+  );
+
+  readonly deleteList = this.effect((deleteList$: Observable<void>) =>
+    deleteList$.pipe(
+      withLatestFrom(this.id$),
+      tap(([, id]) => {
+        console.log('deleteList', id);
+        this.#store.dispatch(TodoActions.todoListDeleted({ id }));
       })
     )
   );
