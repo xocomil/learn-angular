@@ -10,9 +10,42 @@ import { TodoList } from '../../models/todo-list.model';
 
 export type CheckedEvent = { checked: boolean; arrayIndex: number };
 
+export type IsLoadingStatus = {
+  status: 'loading';
+};
+
+export type IdleStatus = {
+  status: 'idle';
+};
+
+export type SuccessStatus = {
+  status: 'success';
+};
+
+export type ErrorStatus = {
+  status: 'error';
+  message: string;
+};
+
+export type LoadingStatus =
+  | IdleStatus
+  | IsLoadingStatus
+  | SuccessStatus
+  | ErrorStatus;
+
+const createLoadingStatus = (
+  status: 'idle' | 'loading' | 'success'
+): LoadingStatus => ({ status });
+
+const createErrorStatus = (message: string): LoadingStatus => ({
+  status: 'error',
+  message,
+});
+
 type TodoListState = {
   editTitle: boolean;
   todoList: TodoList;
+  loadingStatus: LoadingStatus;
 };
 
 const initialState = (): TodoListState => ({
@@ -22,6 +55,7 @@ const initialState = (): TodoListState => ({
     id: '-1',
     items: [],
   },
+  loadingStatus: createLoadingStatus('idle'),
 });
 
 @Injectable()
@@ -33,7 +67,12 @@ export class TodoListStore extends ComponentStore<TodoListState> {
   readonly items$ = this.select((state) => state.todoList.items);
   readonly todoList$ = this.select((state) => state.todoList);
   readonly editTitle$ = this.select((state) => state.editTitle);
-  readonly editTitleIcon$ = this.editTitle$.pipe(map((editTitle) => (editTitle ? 'save' : 'edit')));
+  readonly editTitleIcon$ = this.editTitle$.pipe(
+    map((editTitle) => (editTitle ? 'save' : 'edit'))
+  );
+  readonly showSpinner$ = this.select(
+    (state) => state.loadingStatus.status === 'loading'
+  );
 
   constructor() {
     super(initialState());
@@ -95,7 +134,11 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     checkEvent$.pipe(
       withLatestFrom(this.items$),
       tap(([{ checked, arrayIndex }, listItems]) => {
-        this.#updateTodoItems(listItems.map((item, index) => (arrayIndex === index ? { ...item, done: checked } : item)));
+        this.#updateTodoItems(
+          listItems.map((item, index) =>
+            arrayIndex === index ? { ...item, done: checked } : item
+          )
+        );
 
         this.#listChanged();
       })
@@ -106,7 +149,9 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     deletedIndex$.pipe(
       withLatestFrom(this.items$),
       tap(([arrayIndex, listItems]) => {
-        this.#updateTodoItems(listItems.filter((item, index) => index !== arrayIndex));
+        this.#updateTodoItems(
+          listItems.filter((item, index) => index !== arrayIndex)
+        );
 
         this.#listChanged();
       })
@@ -117,7 +162,12 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     listChanged$.pipe(
       withLatestFrom(this.todoList$),
       tap(([, todoList]) => {
-        this.#store.dispatch(TodoActions.todoListChanged({ todoListId: todoList.id, changedList: todoList }));
+        this.#store.dispatch(
+          TodoActions.todoListChanged({
+            todoListId: todoList.id,
+            changedList: todoList,
+          })
+        );
       })
     )
   );
@@ -137,9 +187,11 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     )
   );
 
-  readonly #updateTitle = this.updater((state, { newTitle }: { newTitle: string }) => {
-    return create(state, (draft) => {
-      draft.todoList.title = newTitle;
-    });
-  });
+  readonly #updateTitle = this.updater(
+    (state, { newTitle }: { newTitle: string }) => {
+      return create(state, (draft) => {
+        draft.todoList.title = newTitle;
+      });
+    }
+  );
 }
