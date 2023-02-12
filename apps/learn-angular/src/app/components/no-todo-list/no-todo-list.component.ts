@@ -14,10 +14,15 @@ import { MatIconModule } from '@angular/material/icon';
         <mat-card-title> You don't have any Todo Lists </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>It appears that you don't have any Todo Lists. This could be because it is your first or because you deleted them all.</p>
+        <p>
+          It appears that you don't have any Todo Lists. This could be because
+          it is your first or because you deleted them all.
+        </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button><mat-icon fontIcon="add"></mat-icon> Add a new Todo List.</button>
+        <button mat-button>
+          <mat-icon fontIcon="add"></mat-icon> Add a new Todo List.
+        </button>
       </mat-card-actions>
     </mat-card>
   `,
