@@ -2917,34 +2917,34 @@
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/component@15.2.1":
-  version "15.2.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/component/-/component-15.2.1.tgz#f0bb667d0a9acec367cb871b6586aa467b06180b"
-  integrity sha512-v8OO+gfYYsGoom/HP+2UkUUfkUNw0sitD+trqWAWjuATAJcXCeZiJGNX2M0K/rScxkQGy4eaDz9ZgOTD6oeMng==
+"@ngrx/component@15.3.0":
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/component/-/component-15.3.0.tgz#632b22fac3f994f73a8d793ffa0fe18deff484eb"
+  integrity sha512-n35I8fWe8g/OFOrBN3OwiFcVYp6d80wFLc/OlPQudxBBJJCgPkv6lBQfEAQEZp69PiS4lvZadbdJ/DdZmS0SsQ==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/eslint-plugin@15.2.1":
-  version "15.2.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/eslint-plugin/-/eslint-plugin-15.2.1.tgz#a18cd74c04771e29590c9e71cd4f1ab984152d17"
-  integrity sha512-VuseQ0wXSRORuZaoZrCbSPGddDxO7f3nADOQes4nSqltL8Ck4NJIqtE9HYUsHKc8q3Uy7K0g6g3VTLh2ODfB2w==
+"@ngrx/eslint-plugin@15.3.0":
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/eslint-plugin/-/eslint-plugin-15.3.0.tgz#0d82682ef048193fdab25fc0336a54392b0a1593"
+  integrity sha512-lYELIGQOBbE9Jgo4bpX1UNahqnW5oEU9IbjqsdPZ+7ybHwnL5QzWIUusYnfJee/+chvEsEMhkXsgqEQENjMOdQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "^5.4.0"
     eslint-etc "^5.1.0"
     semver "^7.3.5"
     strip-json-comments "3.1.1"
 
-"@ngrx/store-devtools@15.2.1":
-  version "15.2.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-15.2.1.tgz#209247de0d22fc1a8e56c34a832a46e3e3448da3"
-  integrity sha512-mzsW2LEXY2/Qcz/VQbvst2dsR/qU5bFlnx2XgolmlCJRo00buy99Goo0umJi81V5Ii917w/TO8F2UqLMqk0s+w==
+"@ngrx/store-devtools@15.3.0":
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-15.3.0.tgz#e694a7d5cb3edb974f6a3b385e78581549d0de45"
+  integrity sha512-o39T11T994j5XzwiNquhRHVQiFYlOg1PJWmV++LdIaXD0zYovc9lzNDnZJy04mt9XPTDPu8QmcmzV44zUtY4vg==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store@15.2.1":
-  version "15.2.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-15.2.1.tgz#db1673c841c7515f4077ade9fa80028caccfa9db"
-  integrity sha512-s4V2ylfQ/IvjVJrJaqRMNF/LkeUjHG+bkis6xl06CjpwCQ4I2FpLog9le+dfayQLSAu+OXmUOl4/OAY3ewvEtw==
+"@ngrx/store@15.3.0":
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-15.3.0.tgz#7feb22134dcea6cf779149850078c98be1d70125"
+  integrity sha512-8cd0zWkOZ3TedDQHyOzUxZD1HHa0fU8fgzVX/2eIq6wmnleUxHVOKSJvA+DdE4GRoryFqVhAp17L1r5eC2QYHA==
   dependencies:
     tslib "^2.0.0"
 
