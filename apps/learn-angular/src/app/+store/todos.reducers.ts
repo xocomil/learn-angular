@@ -48,7 +48,22 @@ export const todosReducer = createReducer(
   ),
   on(TodoActions.todoListDeleted, (state, { id }) =>
     create(state, (draft) => {
-      draft.todoLists = draft.todoLists.filter((todoList) => todoList.id !== id);
+      draft.todoLists = draft.todoLists.filter(
+        (todoList) => todoList.id !== id
+      );
     })
-  )
+  ),
+  on(TodoActions.todoListAdded, (state) => {
+    console.log('Adding todo list');
+
+    const id = window.crypto.randomUUID();
+
+    return create(state, (draft) => {
+      draft.todoLists.push({
+        id,
+        title: 'New Todo List',
+        items: [],
+      });
+    });
+  })
 );
