@@ -8,6 +8,7 @@ import {
 import { PushModule } from '@ngrx/component';
 import { Store } from '@ngrx/store';
 import { selectListIds, selectNoTodoLists } from '../../+store/todos.selectors';
+import { AddTodoButtonComponent } from '../add-todo-button/add-todo-button.component';
 import { NoTodoListComponent } from '../no-todo-list/no-todo-list.component';
 import { TodoListComponent } from '../todo/todo-list/todo-list.component';
 import { TodoComponent } from '../todo/todo.component';
@@ -16,6 +17,7 @@ import { TodoComponent } from '../todo/todo.component';
   selector: 'learn-angular-todo-list-host',
   standalone: true,
   template: `
+    <learn-angular-add-todo-button class="top-right-button" />
     <learn-angular-no-todo-list *ngIf="noTodoLists$ | ngrxPush" />
     <learn-angular-todo
       *ngFor="let listId of listIds$ | ngrxPush"
@@ -26,9 +28,10 @@ import { TodoComponent } from '../todo/todo.component';
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
+    AddTodoButtonComponent,
     CommonModule,
-    PushModule,
     NoTodoListComponent,
+    PushModule,
     TodoComponent,
     TodoListComponent,
   ],

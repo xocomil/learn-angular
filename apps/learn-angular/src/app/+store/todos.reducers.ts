@@ -54,8 +54,6 @@ export const todosReducer = createReducer(
     })
   ),
   on(TodoActions.todoListAdded, (state) => {
-    console.log('Adding todo list');
-
     const id = window.crypto.randomUUID();
 
     return create(state, (draft) => {

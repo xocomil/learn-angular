@@ -36,8 +36,6 @@ export class NoTodoListComponent {
   readonly #store = inject(Store);
 
   protected addTodo() {
-    console.log('addTodo clicked');
-
     this.#store.dispatch(TodoActions.todoListAdded());
   }
 }
