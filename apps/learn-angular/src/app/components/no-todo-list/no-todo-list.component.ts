@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { Store } from '@ngrx/store';
+import { TodoActions } from '../../+store/todos.actions';
 
 @Component({
   selector: 'learn-angular-no-todo-list',
@@ -11,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
   template: `
     <mat-card appearance="outlined">
       <mat-card-header>
-        <mat-card-title> You don't have any Todo Lists </mat-card-title>
+        <mat-card-title> You don't have any Todo Lists</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>
@@ -20,8 +22,9 @@ import { MatIconModule } from '@angular/material/icon';
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>
-          <mat-icon fontIcon="add"></mat-icon> Add a new Todo List.
+        <button (click)="addTodo()" mat-button>
+          <mat-icon fontIcon="add"></mat-icon>
+          Add a new Todo List.
         </button>
       </mat-card-actions>
     </mat-card>
@@ -29,4 +32,10 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./no-todo-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NoTodoListComponent {}
+export class NoTodoListComponent {
+  readonly #store = inject(Store);
+
+  protected addTodo() {
+    this.#store.dispatch(TodoActions.todoListAdded());
+  }
+}

@@ -1,11 +1,20 @@
 :host {
+  --grid-gap: 0.67rem;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.67rem;
+  gap: var(--grid-gap);
 
   > * {
     flex-grow: 1;
-    min-width: 25%;
+    min-width: calc(50% - var(--grid-gap));
   }
+}
+
+.top-right-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  min-width: 0;
 }
