@@ -1456,10 +1456,10 @@
     tunnel-agent "^0.6.0"
     uuid "^8.3.2"
 
-"@cypress/webpack-dev-server@^2.0.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@cypress/webpack-dev-server/-/webpack-dev-server-2.5.0.tgz#a4b5e51a3ff47765f5eee5abb73efe4f3e4f44ee"
-  integrity sha512-IWd6nFiGTMXh89Si6KC3Snq9FnV4raijLt4jDHYvRt4S7y6IoG8Uiw37UpFfzbUpwSFl8FVbWr8VosIotEj1Pw==
+"@cypress/webpack-dev-server@^3.0.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@cypress/webpack-dev-server/-/webpack-dev-server-3.3.0.tgz#97f206aaad65c8e7709a85a62efb368140977d82"
+  integrity sha512-jOXvKo4I7U89cdKtuoD98VR2PJpueKgHBMbX/uH++SojE0xlUji8n/EFyZUBW/Eds+yPC4keupF8y/ViywP4QQ==
   dependencies:
     find-up "6.3.0"
     fs-extra "9.1.0"
@@ -7166,6 +7166,7 @@ html-tags@^3.2.0:
     util.promisify "1.0.0"
 
 "html-webpack-plugin-5@npm:html-webpack-plugin@^5", html-webpack-plugin@^5.5.0:
+  name html-webpack-plugin-5
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-5.5.0.tgz#c3911936f57681c1f9f4d8b68c158cd9dfe52f50"
   integrity sha512-sy88PC2cRTVxvETRgUHFrL4No3UxvcH8G1NepGhqaTT+GXN2kTamqasot0inS5hXeg1cMbFDt27zzo9p35lZVw==
