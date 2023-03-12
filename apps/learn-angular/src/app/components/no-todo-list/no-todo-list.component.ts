@@ -13,7 +13,7 @@ import { TodoActions } from '../../+store/todos.actions';
   template: `
     <mat-card appearance="outlined">
       <mat-card-header>
-        <mat-card-title> You don't have any Todo Lists</mat-card-title>
+        <mat-card-title>You don't have any Todo Lists</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>
@@ -22,7 +22,7 @@ import { TodoActions } from '../../+store/todos.actions';
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button (click)="addTodo()" mat-button>
+        <button (click)="addTodo()" data-cy="add-button" mat-button>
           <mat-icon fontIcon="add"></mat-icon>
           Add a new Todo List.
         </button>
