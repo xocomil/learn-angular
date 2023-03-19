@@ -69,14 +69,14 @@ export class TodoFooterComponent {
 
   protected newTodoDescription = '';
 
-  addNewTodo(): void {
+  protected addNewTodo(): void {
     this.#todoListStore.addToDo(
       getTodoListItem({ description: this.newTodoDescription })
     );
     this.newTodoDescription = '';
   }
 
-  clearAll(): void {
+  protected clearAll(): void {
     this.#todoListStore.clearAll();
   }
 }
