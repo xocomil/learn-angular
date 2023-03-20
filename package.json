@@ -63,7 +63,7 @@
     "@typescript-eslint/parser": "5.55.0",
     "cypress": "^12.8.1",
     "eslint": "8.36.0",
-    "eslint-config-prettier": "8.7.0",
+    "eslint-config-prettier": "8.8.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-ngrx": "^2.1.4",
     "html-webpack-plugin": "^5.5.0",
