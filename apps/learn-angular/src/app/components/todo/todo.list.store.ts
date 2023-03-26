@@ -114,10 +114,11 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     )
   );
 
-  readonly #updateTodoItems = this.updater((state, items: TodoListItem[]) =>
-    create(state, (draft) => {
-      draft.todoList.items = items;
-    })
+  readonly #updateTodoItems = this.updater(
+    (state, items: TodoListItem[]): TodoListState =>
+      create(state, (draft) => {
+        draft.todoList.items = items;
+      })
   );
 
   readonly clearAll = this.effect((clearAll$) =>
@@ -172,7 +173,7 @@ export class TodoListStore extends ComponentStore<TodoListState> {
     )
   );
 
-  toggleEditTitle = this.updater((state) => {
+  toggleEditTitle = this.updater((state): TodoListState => {
     return create(state, (draft) => {
       draft.editTitle = !state.editTitle;
     });
@@ -188,7 +189,7 @@ export class TodoListStore extends ComponentStore<TodoListState> {
   );
 
   readonly #updateTitle = this.updater(
-    (state, { newTitle }: { newTitle: string }) => {
+    (state, { newTitle }: { newTitle: string }): TodoListState => {
       return create(state, (draft) => {
         draft.todoList.title = newTitle;
       });
