@@ -48,7 +48,7 @@ type TodoListState = {
   loadingStatus: LoadingStatus;
 };
 
-const initialState = (): TodoListState => ({
+export const initialState = (): TodoListState => ({
   editTitle: false,
   todoList: {
     title: 'Stuff To Do',
