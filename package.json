@@ -58,7 +58,7 @@
     "@nrwl/workspace": "15.9.2",
     "@schematics/angular": "~15.2.4",
     "@types/jest": "29.5.0",
-    "@types/node": "18.15.11",
+    "@types/node": "18.19.59",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
     "cypress": "^12.9.0",
@@ -78,7 +78,7 @@
     "typescript": "4.9.5"
   },
   "volta": {
-    "node": "18.12.1",
+    "node": "18.20.4",
     "yarn": "1.22.19"
   }
 }
