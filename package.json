@@ -46,7 +46,7 @@
     "@angular/compiler-cli": "15.2.5",
     "@angular/language-service": "15.2.5",
     "@cypress/webpack-dev-server": "^3.4.0",
-    "@faker-js/faker": "7.6.0",
+    "@faker-js/faker": "10.5.0",
     "@hirez_io/observer-spy": "^2.2.0",
     "@ngneat/spectator": "14.0.0",
     "@nrwl/cli": "15.9.2",
